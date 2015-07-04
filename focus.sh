@@ -3,7 +3,7 @@
 # z3bra - 2014 (c) wtfpl
 # window focus wrapper that sets borders and can focus next/previous window
 
-BW=${BW:-2}                    # border width
+BW=${BW:-5}                    # border width
 ACTIVE=${ACTIVE:-0xffffff}     # active border color
 INACTIVE=${INACTIVE:-0x333333} # inactive border color
 
@@ -25,7 +25,7 @@ setborder() {
     test "$(wattr xywh $2)" = "$(wattr xywh $ROOT)" && return
 
     case $1 in
-        active)   chwb -s $BW -c $ACTIVE $2 ;;
+        active)   chwb -s 10 $2 ;;
         inactive) chwb -s $BW -c $INACTIVE $2 ;;
     esac
 }
