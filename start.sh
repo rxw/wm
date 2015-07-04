@@ -1,2 +1,5 @@
-barid=$(xwininfo -name bar | awk 'NR==2 {print $4}')
-echo $barid
+#!/bin/bash
+
+sh ~/bin/bar.sh &
+sh ~/wm/rainbow.sh &
+sh ~/wm/focus_watcher.sh &

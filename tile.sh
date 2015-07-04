@@ -5,7 +5,7 @@
 
 # default values for gaps and master area
 PANEL=${PANEL:-0}
-GAP=${GAP:-20}
+GAP=${GAP:-40}
 MASTER=${MASTER:-900}
 
 # get current window id and its borderwidth
