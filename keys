@@ -1,0 +1,68 @@
+super + Tab
+  sh ~/wm/focus.sh next
+
+super + q
+  killw $(pfw)
+
+super + ctrl + shift + {h,l,j,k} 
+  wrs {-5 0, 5 0, 0 5, 0 -5 } $(pfw)
+
+super + shift + {h,l,j,k} 
+  wrs {-50 0, 50 0, 0 50, 0 -50 } $(pfw)
+
+super + {h,l,j,k} 
+  wmv {-50 0, 50 0, 0 50, 0 -50 } $(pfw)
+
+super + ctrl + {h,l,j,k} 
+  wmv {-5 0, 5 0, 0 5, 0 -5 } $(pfw)
+
+super + x
+  sh ~/wm/fullscreen.sh $(pfw)
+
+super + space
+  sh ~/wm/tile.sh
+
+super + {g,b,n,y,u}
+  sh ~/wm/center.sh {center,lbc,rbc,ltc,rtc}
+
+# add window to a group
+super + shift + {1,2,3,4,5}
+    sh ~/wm/groups.sh -c $(pfw); \
+    sh ~/wm/groups.sh -s $(pfw) {1,2,3,4,5}
+
+# toggle groups' visibility
+super + {1,2,3,4,5}
+    sh ~/wm/groups.sh -t {1,2,3,4,5}
+
+super + !button{1,3}
+    {wmv, wrs} -a %i %i $(pfw)
+
+super + {Left, Down, Up, Right}
+      sh ~/wm/closest.sh {east, south, north, west}
+
+super + Return
+  urxvt
+
+super + ctrl + q
+  killall sxhkd sh
+
+ctrl + shift + {Up, Right, Left}
+  mpc {toggle, next, prev}
+
+super + r
+  sh ~/bin/runprompt.sh
+
+XF86AudioRaiseVolume
+  sh ~/bin/volup.sh
+
+XF86AudioLowerVolume
+  sh ~/bin/voldown.sh
+
+XF86AudioMute
+  amixer set Master toggle
+
+XF86MonBrightnessUp
+  xbacklight -inc 10
+
+XF86MonBrightnessDown
+  xbacklight -dec 10
