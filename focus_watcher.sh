@@ -7,6 +7,7 @@
 wew | while IFS=: read ev wid; do
     case $ev in
         # occurs on mapping requests
-        19) wattr o $wid || focus.sh $wid  && center.sh $wid;;
+        17) sh ~/wm/focus.sh next;;
+        19) wattr o $wid || sh ~/wm/focus.sh $wid;;
     esac
 done

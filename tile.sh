@@ -4,9 +4,9 @@
 # arrange windows in a tiled pattern
 
 # default values for gaps and master area
-PANEL=${PANEL:-0}
+PANEL=${PANEL:-30}
 GAP=${GAP:-40}
-MASTER=${MASTER:-900}
+MASTER=${MASTER:-1000}
 
 # get current window id and its borderwidth
 PFW=$(pfw)

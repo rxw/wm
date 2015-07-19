@@ -114,12 +114,12 @@ toggle_group() {
 
     # search through active groups first
     grep -q $1 < $FSDIR/active && \
-    unmap_group $1 && \
+    unmap_group $1 &&\
     return
 
     # search through inactive groups next
     grep -q $1 < $FSDIR/inactive && \
-    map_group $1 && \
+    map_group $1 &&\
     return
 }
 
@@ -185,6 +185,7 @@ while getopts "hc:Cs:t:m:M:u:U" opt; do
             ;;
         t)
             toggle_group $OPTARG
+            sh ~/wm/focus.sh next
             break
             ;;
         m)

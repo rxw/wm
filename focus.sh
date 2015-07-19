@@ -48,4 +48,6 @@ wtf $wid                # set focus on it
 
 # you might want to remove this for sloppy focus
 wmp -a $(wattr xy $wid) # move the mouse cursor to
-wmp -r $(wattr wh $wid) # .. its bottom right corner
+w=$(($(wattr w $wid)/2))
+h=$(($(wattr h $wid)/2))
+wmp -r $w $h # .. its bottom right corner
