@@ -11,14 +11,17 @@ cont=0
 
 while :; do
     IFS=$'\n'
-    for i in $(grep color .Xdefaults | sort -V $opt)
+    if [[ $(pfw) -ne $CUR ]]; then
+      chwb -c 151515 $CUR
+      CUR=$(pfw)
+    fi
+    for i in $(xrdb -query colors | sort -V $opt | awk '{ print $2 }' | tr -d '#' )
     do
       cont=$((cont+1))
-      c=$(printf $i | cut -d ":" -f 2 | tr -d '#')
-      chwb -c $c $(pfw) 
+      chwb -c $i $(pfw) 
       sleep $FREQ
       case $cont in
-        6)
+        16)
           cont=0
           if [[ $opt == -r ]]; then
             opt="" 
